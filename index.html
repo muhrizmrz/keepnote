@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Keep Note</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-light">
+<div class="container-fluid">
+	<div class="row" style="">
+		<header class="col-md-12 bg-white p-3 box-shadow mb-5" style="position: fixed;z-index: 1000;">
+			<div class="row">
+				<div class="col-md-3">
+					<h2 style="font-family: cursive;">Keep Note</h2>
+				</div>
+			</div>	
+		</header>
+	</div>
+	
+<br><br><br><br>
+	
+		<div class="col-md-12" id="add-note" style="width:100%;height:100%;position: absolute;top: 0px;left:0px;bottom:0px;z-index: 1001;background-color: rgba(80, 80, 80, 0.5) !important;display: none;">
+				<div class="row justify-content-center mt-5">
+					<div class="col-md-8 bg-white">
+						<form class="row mt-5" id="add-note-form">
+							<div class="col-md-12 text-right">
+								<button role="button" class="model-close btn btn-danger" id="close-note-form">X</button>
+							</div>
+							<div class="col-md-12 mt-3">
+								<h3 class="text-center">Add Your Note</h3>
+							</div>
+							<div class="col-md-12 mt-3">
+								<input type="text" id="note-title-input" name="heading" placeholder="Title" class="form-control">
+							</div>
+							<div class="col-md-12 mt-3">
+								<textarea placeholder="Write Your Note" id="notes" name="notes" cols="4" rows="8" class="form-control"></textarea> 
+							</div>
+							<div class="col-md-12 mt-3 text-right mb-5">
+								<button class="btn btn-danger" id="save-note">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>				
+		</div>
+
+			
+	
+
+	
+		<div class="border-radius-5 text-center text-white p-2 mr-sm-2 mr-2 box-shadow" id="add-note-btn" style="background: #dc3545;width:55px;height: 55px;position: fixed;right: 10%;bottom: 50px;cursor: pointer;z-index: 999;">
+			<h3>+</h3>
+		</div>
+<br>
+	<div class="row justify-content-center" >
+		<div class="col-md-5 col-sm-8 col-8 card m-3">
+			<div class="row bg-primary" >
+				<div class="col-md-5 col-sm-5 col-5 p-2 bg-primary text-white" style="border-bottom: 1px solid grey;">
+					<h3>Your notes</h3>
+				</div>
+				<div class="col-md-5 col-sm-5 col-5 p-2 text-right">
+					<p class="btn btn-danger" id="clearAll" style="margin: 0px!important;">Clear All</p>
+				</div>
+				<div class="col-md-2 col-sm-2 col-2 col-2 p-2  text-right bg-primary" style="border-bottom: 1px solid grey;">
+					<h5 id="item-count" class="btn text-primary" style="background: white;margin: 0px!important;">5</h5>
+				</div>
+			</div>
+
+			<div class="row" id="note-file-select">
+				<h6 id="empty" class="p-4 text-center col-md-12 hide">No Notes Available</h6>
+				<!--<div class="col-md-12 p-2 note-file" id="shoppinglist">
+					<h5 class="note-title">Shopping List</h5>				
+				</div>
+				<div id="Myaadharnumber" class="col-md-12 p-2 note-file">
+					<h5 class="note-title">My aadhar number</h5>
+				</div>-->
+			</div>
+		</div>
+		<div class="col-md-5 col-sm-8 col-8 card m-3">
+			<div class="row">
+				<div class="col-md-12 p-2 bg-primary text-white" style="border-bottom: 1px solid grey;">
+					<h5 id="note-name">Select your notes</h5>
+				</div>
+				<div class="col-md-12 p-3" id="note-view" style="">	
+					<p id="text_note" class="text-capitalize" style="font-size: 16px;"></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table id="array-filter">
+				
+			</table>
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="model-object.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

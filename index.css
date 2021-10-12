@@ -1,0 +1,44 @@
+.box-shadow {
+	box-shadow: -2px 0 9px -6px black;
+}
+.border-radius {
+	border-radius: 5px;
+}
+.border-radius-2 {
+	border-radius: 10px;
+}
+.hide {
+	display: none;
+}
+.border-radius-5 {
+	border-radius: 50%;
+}
+.bg-white {
+	background: white;
+}
+.model {
+	position: absolute;
+	z-index: 1000;
+	box-shadow: -2px 0 9px -6px black;
+}
+a {
+	color: black!important;
+}
+a:hover {
+	text-decoration: none!important;
+}
+#note-file-select .delete-but {
+	cursor: pointer;
+}
+#note-file-select .note-file:hover {
+	background: #f3f3f3;
+}
+.btn-white {
+	background: white;
+}
+.delete-but:hover {
+	color: #00264e !important;
+}
+.hide {
+	display: none;
+}
